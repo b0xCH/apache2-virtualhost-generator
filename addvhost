@@ -6,12 +6,16 @@ read username
 echo ""
 echo "Domain: "
 read domain
+echo ""
 echo "Path: "
 read path
 echo ""
+echo "Permissions: "
+read permissions
+echo ""
 mkdir $path/$domain
 chown -R $username:$username $path/$domain
-chmod -R 755 $path/$domain
+chmod -R $permissions $path/$domain
 cat > /etc/apache2/sites-available/$domain <<EOF
 <VirtualHost *:80>
         ServerName $domain
