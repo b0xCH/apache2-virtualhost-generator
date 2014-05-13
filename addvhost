@@ -1,0 +1,26 @@
+#!/bin/bash
+echo "addvhost - Add a virtual host"
+echo "2014 - b0xCH Development"
+echo "Username: "
+read username
+echo ""
+echo "Domain: "
+read domain
+echo "Path: "
+read path
+echo ""
+mkdir $path/$domain
+chown -R $username:$username $path/$domain
+chmod -R 755 $path/$domain
+cat > /etc/apache2/sites-available/$domain <<EOF
+<VirtualHost *:80>
+        ServerName $domain
+        ServerAlias www.$domain
+        DocumentRoot $path/$domain
+</VirtualHost>
+EOF
+a2ensite $domain
+service apache2 reload
+echo "The vHost $domain for $username has been created successfully!"
+
+
