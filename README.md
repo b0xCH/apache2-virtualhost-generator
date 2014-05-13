@@ -7,7 +7,7 @@ Helps generating a virtualhost on apache2 servers.
 
 - Generating folders for Webfiles
 - Setting permissions 
-- Generating custom variables (Like logfile folder, administrator Email...)
+- Generating custom variables (Like logfile folder, administrator Email...) >Not yet<
 
 
 **Install instructions**
